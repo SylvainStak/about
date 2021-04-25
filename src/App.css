@@ -1,6 +1,6 @@
 .header .navbar {
   background-color: transparent !important;
-  transition: ease-in-out .5s;
+  transition: ease-in-out .3s;
 }
 
 #root .scrolledNavbar {

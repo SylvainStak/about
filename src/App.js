@@ -6,10 +6,9 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = { navbarScrolled: false };
     this.sectionAbout = React.createRef();
-    this.state = {
-      navbarScrolled: false,
-    }
+    this.sectionNavbar = React.createRef();
   }
 
   componentDidMount() {
@@ -25,7 +24,11 @@ class App extends Component {
   }
 
   scrollToSection(section) {
-    section.current.scrollIntoView({ behavior: 'smooth' });
+    window.scroll({
+      top: section.current.offsetTop - this.sectionNavbar.current.offsetHeight,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
 
   render() {
@@ -36,7 +39,7 @@ class App extends Component {
     return(
       <>
         <header className="header">
-          <nav className={`navbar fixed-top navbar-expand-lg navbar-dark bg-dark ${navbarScrolled ? 'scrolledNavbar' : ''}`}>
+          <nav className={`navbar fixed-top navbar-expand-lg navbar-dark bg-dark ${navbarScrolled ? 'scrolledNavbar' : ''}`} ref={this.sectionNavbar}>
             <a className="navbar-brand" href="https://sylvainstak.github.io/about">Sylvain Afonso</a>
             <button
               className="navbar-toggler"
@@ -101,7 +104,7 @@ class App extends Component {
             </p>
 
             <p className="pl-xl-5 pr-xl-5 ml-xl-5 mr-xl-5 text-center">
-              Outside of work, you'll either find me spending time with family and friends, looking for a good API on the internet to 
+              Outside of work, you'll either find me spending time with family and friends, looking for interesting API's on the internet to
               make a good interface out of it, Simracing, or watching Formula 1 and other motorsport events.
             </p>
 
