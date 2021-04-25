@@ -9,7 +9,7 @@
 }
 
 .header {
-  background: url("./testimg.jpg") no-repeat center;
+  background: url("./backgroundImage.jpg") no-repeat center;
   background-size: cover;
   min-height: 100vh;
   z-index: 9999 !important;
