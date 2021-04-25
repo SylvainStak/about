@@ -7,8 +7,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { navbarScrolled: false };
-    this.sectionAbout = React.createRef();
     this.sectionNavbar = React.createRef();
+    this.sectionAbout = React.createRef();
+    this.sectionProjects = React.createRef();
+    this.sectionContact = React.createRef();
   }
 
   componentDidMount() {
@@ -18,7 +20,7 @@ class App extends Component {
   }
 
   renderSkills() {
-    return data.skills.map((skill) => 
+    return data.skills.map((skill) =>
       <h4 key={skill}><span className="badge badge-warning mr-2">{skill}</span></h4>
     );
   }
@@ -36,7 +38,7 @@ class App extends Component {
       navbarScrolled,
     } = this.state;
 
-    return(
+    return (
       <>
         <header className="header">
           <nav className={`navbar fixed-top navbar-expand-lg navbar-dark bg-dark ${navbarScrolled ? 'scrolledNavbar' : ''}`} ref={this.sectionNavbar}>
@@ -54,13 +56,13 @@ class App extends Component {
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item" onClick={() => this.scrollToSection(this.sectionAbout) }>
+                <li className="nav-item" onClick={() => this.scrollToSection(this.sectionAbout)}>
                   <p className="nav-link text-light">About</p>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item" onClick={() => this.scrollToSection(this.sectionProjects)}>
                   <p className="nav-link text-light">Projects</p>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item" onClick={() => this.scrollToSection(this.sectionContact)}>
                   <p className="nav-link text-light">Contact</p>
                 </li>
               </ul>
@@ -75,7 +77,7 @@ class App extends Component {
             <div className="circle-container">
               <div
                 className="rounded-circle bg-light p-2 scrollDownIntro m-auto text-center"
-                onClick={() => this.scrollToSection(this.sectionAbout) }>
+                onClick={() => this.scrollToSection(this.sectionAbout)}>
                 <i className="fas fa-chevron-down"></i>
               </div>
             </div>
@@ -109,12 +111,12 @@ class App extends Component {
             </p>
 
             <div className="d-flex justify-content-center">
-            <button
-              type="button"
-              className="btn btn-dark mt-4"
-              onClick={() => window.open("https://github.com/SylvainStak", "_blank")}
-            >
-              <i className="fab fa-github mr-2"></i> Github Profile
+              <button
+                type="button"
+                className="btn btn-dark mt-4"
+                onClick={() => window.open("https://github.com/SylvainStak", "_blank")}
+              >
+                <i className="fab fa-github mr-2"></i> Github Profile
             </button>
             </div>
             <hr className="divider info my-4"></hr>
@@ -123,6 +125,162 @@ class App extends Component {
               {this.renderSkills()}
             </div>
           </div>
+        </div>
+
+        <div className="container-fluid section-projects pt-3 pb-5" id="section-projects" ref={this.sectionProjects}>
+          <h3 className="text-center">Projects</h3>
+          <hr className="divider info my-4"></hr>
+          <p className="text-center font-weight-bold">Here are some cool projects with links to the live website and source code</p>
+          <div className="projects-showcase">
+
+            <div className="d-flex justify-content-around flex-wrap">
+              <div className="flip-card project-f1 mt-5">
+                  <div className="flip-card-inner">
+                    <div className="flip-card-front">
+                      <div className="text-light d-inline-block px-3 mx-4">
+                        Formula 1 Season Tracker
+                      </div>
+                    </div>
+                    <div className="flip-card-back">
+                      <div className="card-buttons mt-2">
+                        <button
+                          type="button"
+                          className="btn btn-dark"
+                          onClick={() => window.open("https://sylvainstak.github.io/formula1-season-tracker/", "_blank")}
+                        >
+                          <i className="fas fa-bolt mr-2"></i> Live Website
+                        </button><br />
+                        <button
+                          type="button"
+                          className="btn btn-dark mt-2"
+                          onClick={() => window.open("https://github.com/SylvainStak/formula1-season-tracker", "_blank")}
+                        >
+                          <i className="fab fa-github mr-2"></i> Source Code
+                        </button>
+                      </div>
+                      <div className="p-1">
+                        <h5 className="mt-3">Formula 1 Season Tracker</h5>
+                        <p>Provides a clean UI made with ReactJS for the current Formula 1 season.</p>
+                        <p>Data is gathered from the Ergast API.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flip-card project-game-of-life mt-5">
+                  <div className="flip-card-inner">
+                    <div className="flip-card-front">
+                      <div className="text-light d-inline-block px-3 mx-4">
+                        Game Of Life
+                      </div>
+                    </div>
+                    <div className="flip-card-back">
+                      <div className="card-buttons mt-2">
+                        <button
+                          type="button"
+                          className="btn btn-dark"
+                          onClick={() => window.open("https://sylvainstak.github.io/Projects/GameOfLife/index.html", "_blank")}
+                        >
+                          <i className="fas fa-bolt mr-2"></i> Live Website
+                        </button><br />
+                        <button
+                          type="button"
+                          className="btn btn-dark mt-2"
+                          onClick={() => window.open("https://github.com/SylvainStak/sylvainstak.github.io/tree/master/Projects/GameOfLife", "_blank")}
+                        >
+                          <i className="fab fa-github mr-2"></i> Source Code
+                        </button>
+                      </div>
+                      <div className="p-1">
+                        <h5 className="mt-3">Game of Life</h5>
+                        <p>Visualization of the Conway's Game of Life with customizable grid.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div className="d-flex justify-content-around flex-wrap">
+              <div className="flip-card project-sorting-visualizer mt-5">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <div className="text-light d-inline-block px-3 mx-4">
+                      Sorting Visualizer
+                    </div>
+                  </div>
+                  <div className="flip-card-back">
+                    <div className="card-buttons mt-2">
+                      <button
+                        type="button"
+                        className="btn btn-dark"
+                        onClick={() => window.open("https://sylvainstak.github.io/Projects/SortingVisualizer/index.html", "_blank")}
+                      >
+                        <i className="fas fa-bolt mr-2"></i> Live Website
+                      </button><br />
+                      <button
+                        type="button"
+                        className="btn btn-dark mt-2"
+                        onClick={() => window.open("https://github.com/SylvainStak/sylvainstak.github.io/tree/master/Projects/SortingVisualizer", "_blank")}
+                      >
+                        <i className="fab fa-github mr-2"></i> Source Code
+                      </button>
+                    </div>
+                    <div className="p-1">
+                      <h5 className="mt-3">Sorting Visualizer</h5>
+                      <p>Sorting Visualizer by color implementing 4 of the most famous sorting algorithms.</p>
+                      <p>Built using javascript generator functions.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flip-card project-wolfram mt-5">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <div className="text-light d-inline-block px-3 mx-4">
+                      Wolfram Elementary Cellular Automata
+                    </div>
+                  </div>
+                  <div className="flip-card-back">
+                    <div className="card-buttons mt-2">
+                      <button
+                        type="button"
+                        className="btn btn-dark"
+                        onClick={() => window.open("https://sylvainstak.github.io/Projects/CellularAutomaton/index.html", "_blank")}
+                      >
+                        <i className="fas fa-bolt mr-2"></i> Live Website
+                      </button><br />
+                      <button
+                        type="button"
+                        className="btn btn-dark mt-2"
+                        onClick={() => window.open("https://github.com/SylvainStak/sylvainstak.github.io/tree/master/Projects/CellularAutomaton", "_blank")}
+                      >
+                        <i className="fab fa-github mr-2"></i> Source Code
+                      </button>
+                    </div>
+                    <div className="p-1">
+                      <h5 className="mt-3">Wolfram Elementary Cellular Automata</h5>
+                      <p>Visualization of the rules from 0 to 255 of the Wolfram Elementary Cellular Automata.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div className="container-fluid section-contact pb-4 text-center" ref={this.sectionContact}>
+          <h3 className="text-center text-light pt-4">Contact Me</h3>
+          <hr className="divider info my-4"></hr>
+          <p className="text-center">I'd love to hear from you!</p>
+          <button
+            type="button"
+            className="btn btn-light mt-2"
+            onClick={() => window.open("mailto:afonsoponcesl@gmail.com", "_blank")}
+          >
+            <i className="fas fa-envelope mr-2"></i> afonsoponcesl@gmail.com
+          </button>
         </div>
       </>
     );
