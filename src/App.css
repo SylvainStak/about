@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+.header .navbar {
+  background-color: transparent !important;
+  transition: ease-in-out .5s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root .scrolledNavbar {
+  background-color: #343a40 !important;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.header {
+  background: url("./testimg.jpg") no-repeat center;
+  background-size: cover;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  z-index: 9999 !important;
+}
+
+.navbar {
+  z-index: 99999 !important;
+}
+
+.tsparticles-canvas-el {
+  z-index: 50 !important;
+  position: absolute !important;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+}
+
+.intro {
+  z-index: 9999 !important;
+  color: black;
+  padding-top: 17rem;
+  position: absolute;
+  width: 100%;
+}
+
+.nav-item {
+  cursor: pointer !important;
+}
+
+#root .nav-link:hover{
+  color: rgba(255, 255, 255, .5) !important;
+}
+
+hr.divider {
+  max-width: 3.25rem;
+  border-width: 0.2rem;
+  border-color: var(--info);
+}
+
+.scrollDownIntro {
+  width: 2.5rem;
+  margin-top: 10rem !important;
+  cursor: pointer;
+  animation: bounce 0.8s infinite alternate;
+}
+
+@keyframes bounce { 
+  0% { transform: translateY(0); } 
+  100% { transform: translateY(-10px); } 
+}
+
+.section-about {
+  background-color: #17a2b8;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.section-about hr.divider {
+  max-width: 3.25rem;
+  border-width: 0.2rem;
+  border-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.skills {
+  margin: 0px 15rem;
+  text-align: center;
+}
+
+.skills h4 {
+  display: inline-block;
+}
+
+@media (max-width: 991px) {
+  .skills {
+    margin: 0px 0px !important;
   }
-  to {
-    transform: rotate(360deg);
+
+  .scrollDownIntro {
+    margin-top: 3rem !important;
+  }
+}
+
+@media (max-width: 942px) and (orientation: landscape) {
+  .intro {
+    padding-top: 7rem !important;
+  }
+
+  .header .navbar {
+    background-color: #343a40 !important;
   }
 }
