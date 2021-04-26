@@ -95,7 +95,7 @@ class App extends Component {
             </p>
 
             <p className="pl-xl-5 pr-xl-5 ml-xl-5 mr-xl-5 text-center">
-              With a proffesional background as a ReactJS developer, my primary goal is to master this technology, but I also love
+              With a professional background as a ReactJS developer, my primary goal is to master this technology, but I also love
               to learn new libraries and frameworks when I see they provide real value to the development.
             </p>
 
